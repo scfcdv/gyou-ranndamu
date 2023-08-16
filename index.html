@@ -1,0 +1,25 @@
+<head>
+<link rel="icon" href="https://homeweb2-rmir.vercel.app/favicon.ico">
+<title>行配列ランダム化ツール</title>
+<style>
+#output {
+white-space: pre-wrap;}
+</style>
+</head>
+<body>
+<textarea id="input" rows="4" cols="50"></textarea><br>
+<button onclick="randomizeTextRows()">ランダム化</button><br>
+<div id="output"></div>
+<script>
+function randomizeTextRows() {
+var input = document.getElementById("input").value;
+var rows = input.split("\n");
+for (var i = rows.length - 1; i > 0; i--) {
+var j = Math.floor(Math.random() * (i + 1));
+var temp = rows[i];
+rows[i] = rows[j];
+rows[j] = temp;}
+var output = rows.join("\n");
+document.getElementById("output").textContent = output;}
+</script>
+</body>
